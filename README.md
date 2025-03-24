@@ -1,2 +1,1 @@
-# mashijie1028.github.io
-Homepage of Shijie Ma.
+This is the source code to my academic website: https://mashijie1028.github.io. The template is borrowed from Jon Barron's public academic website: https://jonbarron.info/
