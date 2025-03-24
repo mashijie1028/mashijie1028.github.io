@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Imperfect Generative Models are Secretly Strong Vision-Centric Enhancers.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Imperfect Generative Models are Secretly Strong Vision-Centric Enhancers</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/page_logo.jpg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Imperfect Generative Models are Secretly Strong Vision-Centric Enhancers</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=pLVzF3cAAAAJ&hl=en">Shijie Ma</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://geyuying.github.io/">Yuying Ge</a><sup>1,<i class="fas fa-envelope"></i></sup>,</span>
+            <span class="author-block">
+              <a href="http://ttengwang.com/">Teng Wang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=x_0spxgAAAAJ&hl=en">Yuxin Guo</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://geyixiao.com/">Yixiao Ge</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=4oXBp9UAAAAJ&hl=en">Ying Shan</a><sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>ARC Lab, Tencent PCG,</span>
+            <span class="author-block"><sup>2</sup>Institute of Automation, CAS</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2403.04272"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/mashijie1028/Gen4Rep"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Models Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/msj9817/Gen4Rep"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <img src="static/images/hf-logo.svg" alt="Hugging Face" width="24" height="24">
+                  </span>
+                  <span>Models</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="coumns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">TL;DR</h2>
+        <div class="content has-text-justified">
+          <p>
+            Generative models could help discriminative models. We delve into the critical factors and propose a two-stage post-training method to enhance CLIP ViT's fine-grained representations.
+            Our method is efficient that employs lightweight generative models without pre-trained weights. Besides, it is versatile and applicable to both continuous and discrete denoisers.
+          </p>
+        </div>
+      </div>
+    </div>
+</section> -->
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Background. -->
+    <div class="coumns is-centered has-text-centered">
+      <!-- div class="column is-four-fifths" -->
+      <div class="column is-full">
+        <h2 class="title is-3">TL;DR</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent works demonstrate the feasibility of enhancing visual representations with generative models,
+            where generative models take visual tokens as conditions and perform reconstruction.
+            However, the underlying principle remains underexplored.
+          </p>
+          <p>
+            In this work, we delve into three aspects to explore the critical factors:
+            (1) conditioning mechanisms, (2) denoising configurations and (3) generation paradigms.
+          </p>
+          <p>
+            We propose a two-stage post-training method to enhance CLIP ViT, which is efficient (with only lightweight denoisers) and versatile (applicable to both continuous and discrete denoisers).
+          </p>
+          <!-- <p>
+            <br>Below is our preliminary findings: <b>perfect generation is not necessary for visual enhancements.</b>
+          </p> -->
+          <h5 class="subtitle has-text-left" style="margin-bottom: -40px;">
+            <br>&#9654; Our preliminary findings: <b>perfect generation is not necessary for visual enhancements.</b>
+          </h5>
+        </div>
+      </div>
+    </div>
+    <!--/ Background -->
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- insert images -->
+      <img src="./static/images/teaser.jpg" alt="Gen4Rep Teaser" height="100%">
+      <h2 class="subtitle has-text-left">
+        <b>Perfect <span style="color: #6D339C;">generation (reconstruction)</span> does not always yield desirable <span style="color: #285D9B;">visual representations</span>.</b>
+        (a) Pipeline of fine-grained visual enhancements, where generative models take visual tokens as conditions and perform reconstruction.
+        (b) Experiments across four dimensions, <i>i.e.</i>, training iterations, denoiser size, ratio of local tokens as conditions, and whether to use pre-trained denoisers.
+        We measure <b><span style="color: #6D339C;">generation (CLIP score &uarr;)</span></b> and <b><span style="color: #285D9B;">visual representations (MMVP-VLM &uarr;)</span></b> performance.
+        As the results demonstrate, although increasing the number of training iterations, adding more denoiser blocks,
+        using a larger ratio of local tokens as conditions, and employing pre-trained denoisers lead to better generation results,
+        the performance of visual representations does not always improve.
+        <b>Best viewed zoomed in.</b>
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <!-- div class="column is-four-fifths" -->
+      <div class="column is-full">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            The synergy between generative and discriminative models receives growing attention.
+            While discriminative Contrastive Language-Image Pre-Training (CLIP) excels in high-level semantics, it struggles with perceiving fine-grained visual details.
+            Generally, to enhance representations, generative models take CLIP's visual features as conditions for reconstruction. However, the underlying principle remains underexplored.
+          </p>
+          <p>
+            In this work, we empirically found that <b>visually</b> perfect generations are not always optimal for representation enhancement.
+            The essence lies in effectively extracting fine-grained knowledge from generative models while mitigating irrelevant information.
+            To explore critical factors, we delve into three aspects:
+            (1) Conditioning mechanisms: We found that even a small number of local tokens can drastically reduce the difficulty of reconstruction,
+            leading to collapsed training. We thus conclude that utilizing <b>only</b> global visual tokens as conditions is the most effective strategy.
+            (2) Denoising configurations: We observed that end-to-end training introduces extraneous information.
+            To address this, we propose a two-stage training strategy to prioritize learning useful visual knowledge.
+            Additionally, we demonstrate that lightweight denoisers can yield remarkable improvements.
+            (3) Generation paradigms: We explore both continuous and discrete denoisers with desirable outcomes, validating the versatility of our method.
+          </p>
+          <p>
+            Through our in-depth exploration, we have finally arrived at an effective method that consistently outperforms prior arts on the MMVP-VLM benchmark,
+            <i>e.g.</i>, 6.0% on OpenAICLIP. The enhanced CLIP can be plugged into multimodal large language models for better vision-centric performance.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- Method Title -->
+      <h2 class="title is-3 has-text-centered">Method</h2>
+      <!-- insert images -->
+      <img src="./static/images/method.jpg" alt="Gen4Rep Method" height="100%">
+      <h2 class="subtitle has-text-left">
+        The two-stage post-training framework for visual enhancements.
+        (a) Overall training pipeline.
+        (b) Continuous generative model as the denoiser. We employ a lightweight <tt>FLUX</tt>-like DiT (but with fewer blocks) and employ a regression loss of flow matching.
+        (c) Discrete generative model as the denoiser. We choose a lightweight Perceiver and employ cross-entropy loss to predict masked tokens.
+      </h2>
+      <p class="has-text-left">
+        <b>Key Point #1: Conditional Visual Tokens.</b>
+        The visual condition features should exclusively comprise <i>only</i> <tt>[CLS]</tt>, which ensures remarkable mutual information between ViT and generative models.
+      </p>
+      <p class="has-text-left">
+        <b>Key Point #2: Denoising Configurations.</b>
+        Two-Stage training CLIP ViT learn useful knowledge from generative models while preventing irrelevant information, <i>e.g.</i>, the domain gap between feature space and condition space.
+      </p>
+      <p class="has-text-left">
+        <b>Key Point #3: Generation Paradigms.</b>
+        Our method is applicable to both continuous and discrete generative models.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- Experiments -->
+      <h2 class="title is-3 has-text-centered">Experiments</h2>
+
+      <!-- MMVP main -->
+      <h2 class="subtitle has-text-left" style="margin-bottom: 5px;">
+        &#9654; Our method with lightweight denoisers consistently outperforms prior arts relying on pre-trained heavy denoisers:
+      </h2>
+      <img src="./static/images/mmvp_1.jpg" alt="MMVP main" height="100%">
+      <br><br>
+
+      <!-- MMVP continuous/discrete -->
+      <h2 class="subtitle has-text-left" style="margin-bottom: 5px;">
+        &#9654; Our method is applicable to both continuous and discrete denoisers:
+      </h2>
+      <img src="./static/images/mmvp_2.jpg" alt="MMVP continuous/discrete" style="width: 70%; height: auto; display: block; margin: 0 auto;">
+      <br><br>
+
+      <!-- MLLM -->
+      <h2 class="subtitle has-text-left" style="margin-bottom: 5px;">
+        &#9654; The enhanced CLIP ViT could be plugged into MLLMs in a <i>plug-and-play</i> manner to improve their performance on vision-centric benchmarks:
+      </h2>
+      <img src="./static/images/mllm.jpg" alt="MLLM" height="100%">
+      <br><br>
+
+      <!-- Analysis -->
+      <h2 class="subtitle has-text-left" style="margin-bottom: 5px;">
+        &#9654; Qualitative analysis: perfect generation does not always yield better visual representations:
+      </h2>
+      <img src="./static/images/qualitative.jpg" alt="Qualitative analysis" style="width: 70%; height: auto; display: block; margin: 0 auto;">
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Algorithms Section -->
+    <div class="columns is-centered has-text-left"> <!-- Changed to left-aligned text -->
+      <!-- Set the column width to full (100%) -->
+      <div class="column is-full">
+        <h2 class="title is-3">Algorithms</h2>
+        <div class="content has-text-justified">
+          <!-- <p>
+            The detailed algorithm with the continuous denoiser is attached below:
+          </p> -->
+          <h5 class="subtitle has-text-left" style="margin-bottom: 10px;">
+            &#9654; Detailed algorithm with continuous denoisers is attached below:
+          </h5>
+          <!-- Inserted images -->
+          <img src="./static/images/algorithm_continuous.jpg" alt="Continuous denoiser" style="max-width: 100%; height: auto;">
+
+          <!-- <p>
+            <br><br>The detailed algorithm with the discrete denoiser is attached below:
+          </p> -->
+          <h5 class="subtitle has-text-left" style="margin-bottom: 10px;">
+            <br>&#9654; Detailed algorithm with discrete denoisers is attached below:
+          </h5>
+          <!-- Inserted images -->
+          <img src="./static/images/algorithm_discrete.jpg" alt="Discrete denoiser" style="max-width: 100%; height: auto;">
+        </div>
+      </div>
+    </div>
+    <!-- End of Algorithms Section -->
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{ma2025genrep,
+      title={Imperfect Generative Models are Secretly Strong Vision-Centric Enhancers},
+      author={Ma, Shijie and Ge, Yuying and Wang, Teng and Guo, Yuxin and Ge, Yixiao and Shan, Ying},
+      journal={arXiv preprint arXiv:2503.TODO},
+      year={2025}
+}</code></pre>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Contact</h2>
+    <p>
+      If you have further questions, feel free to contact me: <tt>mashijie9817@gmail.com</tt>
+    </p>
+    <p>
+      Discussions and potential collaborations are also welcome.
+    </p>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/mashijie1028" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is built upon <a
+            href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> which is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
