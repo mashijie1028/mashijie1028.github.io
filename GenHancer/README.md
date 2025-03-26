@@ -1,4 +1,4 @@
-# mashijie1028.github.io-gen4rep
+# mashijie1028.github.io-GenHencer
 
 This website is built upon [Nerfies](https://github.com/nerfies/nerfies.github.io) which is licensed under [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/)
 
